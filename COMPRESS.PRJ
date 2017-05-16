@@ -1,0 +1,7 @@
+make OS2 EXE
+option +case +map +pack +check -vid
+model Small
+include %N initexe
+import os2jpi
+import %O%M_mlib
+

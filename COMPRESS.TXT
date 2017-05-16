@@ -1,0 +1,55 @@
+COMPRESS
+========
+
+This program defragment files on a HPFS partition using OS/2.  It is
+tested with OS/2 1.3, but should work OK with OS/2 1.2 too.  How the
+algorithm works, is easy to see in the included source.  I think this
+approach will work, but as I don't have any specific information on
+the DosCopy API, and if this API sets the pre-allocation file size
+according to the file allocation information.
+
+My personal opinion is that it is somewhat unnecessary to defragment
+a HPFS partition, but I have seen users requesting this kind of program.
+
+The program is started with the following syntax:
+
+Compress <path> [/S]
+
+<path>   File path of files to be compressed.  The parameter should be
+         entered like "\" or "C:\DEMO\".
+
+/S       Optional.  Specifies that subdirectories should be compressed
+         too.
+
+You should NOT stop the program with Ctrl-Break, or similar.  If you
+want to terminate, you should press <Esc>.  IF you press Ctrl-Break,
+you MAY "almost" lose ONE file.  If you press Ctrl-Break, you should
+look for a file called "Mikaels.$$$", in the last compressed directory.
+If this file exists, you should rename it back to the last file name
+written on the screen.  This happens only if you was unlucky enough to
+press Ctrl-Break exactly between the DosDelete and DosMove API calls,
+but we all know Murphys law.
+
+As I don't have noticed any speed improvements myself, using this
+program (my drive is in good order already), I would be happy if
+you would like to post me your experiences.  If you have any questions
+or suggestions, please mail me.
+
+My address:
+Mikael Wahlgren
+Kransen 4E
+S-416 72  Gothenburg
+Sweden
+
+Fidonet:  Mikael Wahlgren 2:203/302.5
+Internet: d9mikael@dtek.chalmers.se
+
+
+
+
+
+
+
+
+
+
